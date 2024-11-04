@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kairos International School Amawbia</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        /* Light mode */
+        .light-mode {
+            background-color: white;
+            color: blue;
+        }
+
+        /* Dark mode */
+        .dark-mode {
+            background-color: #2e2e2e;
+            color: gold;
+        }
+
+        header {
+            padding: 20px;
+            text-align: center;
+            background-color: navy;
+            color: white;
+        }
+
+        nav {
+            width: 250px;
+            height: 100%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: -250px;
+            background-color: #111;
+            transition: 0.3s;
+            overflow-x: hidden;
+        }
+
+        nav a {
+            padding: 15px 30px;
+            display: block;
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+
+        .menu-btn {
+            font-size: 30px;
+            cursor: pointer;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            color: white;
+        }
+
+        .toggle-dark-mode {
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            padding: 5px 10px;
+            background-color: #444;
+            color: white;
+            border-radius: 5px;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        section h2 {
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: navy;
+            color: white;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* For content section design */
+        .content-section {
+            margin-top: 60px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section h3 {
+            color: #333;
+            text-align: center;
+        }
+
+        .content-section p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <header>
+        <h1>Kairos International School Amawbia</h1>
+        <p>Where Excellence Meets Innovation</p>
+    </header>
+    
+    <div id="sideMenu" class="nav">
+        <nav>
+            <a href="#about">About Us</a>
+            <a href="#vision">Vision & Mission</a>
+            <a href="#programs">Programs Offered</a>
+            <a href="#admission">Admission Process</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+    </div>
+
+    <div class="toggle-dark-mode" onclick="toggleMode()">dark</div>
+
+    <section id="about" class="content-section">
+        <h2>About Us</h2>
+        <p>Kairos International School Amawbia is a prestigious institution dedicated to providing quality education to students from various backgrounds. Our school focuses on academic excellence, holistic development, and nurturing the leaders of tomorrow.</p>
+    </section>
+
+    <section id="vision" class="content-section">
+        <h2>Our Vision & Mission</h2>
+        <p>At Kairos International School Amawbia, our vision is to inspire and empower every student to achieve academic success and become responsible global citizens. Our mission is to provide a conducive learning environment that fosters creativity, critical thinking, and personal growth.</p>
+    </section>
+
+    <section id="programs" class="content-section">
+        <h2>Programs Offered</h2>
+        <p>We offer a wide range of programs designed to cater to the educational needs of students at different levels, including:</p>
+        <ul>
+            <li>Primary School Program</li>
+            <li>Junior Secondary School</li>
+            <li>Senior Secondary School</li>
+            <li>Advanced Level Programs</li>
+        </ul>
+    </section>
+
+    <section id="admission" class="content-section">
+        <h2>Admission Process</h2>
+        <p>Admissions to Kairos International School are open to students who meet our academic requirements and share our values of discipline, responsibility, and academic excellence. To apply, please visit our Admission page <a href="form.html">form</a> or contact us directly for more information.</p>
+    </section>
+
+    <section id="contact" class="content-section">
+        <h2>Contact Us</h2>
+        <p>For any inquiries, feel free to reach out to us via the following contact details:</p>
+        <ul>
+            <li>Email: <a href="mailto:yungzkremz1@gmail.com">yungzkremz1@gmail.com</a></li>
+            <li>Phone: <a href="tel:+2347015563182">0701 556 3182</a></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Karios International School Amawbia. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function openNav() {
+            document.getElementById('sideMenu').style.left = '0';
+        }
+
+        function closeNav() {
+            document.getElementById('sideMenu').style.left = '-250px';
+        }
+
+        function toggleMode() {
+            let body = document.body;
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+            }
+        }
+
+        // Close menu when user clicks outside the menu
+        document.addEventListener('click', function(event) {
+            let menu = document.getElementById('sideMenu');
+            let menuBtn = document.querySelector('.menu-btn');
+            if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+                closeNav();
+            }
+        });
+    </script>
+</body>
+</html>
